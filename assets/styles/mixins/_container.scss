@@ -1,0 +1,21 @@
+@import "./assets/styles/variables/container";
+@import "./assets/styles/variables/grid-breakpoints";
+@import "media";
+
+$container-padding-x: 15px;
+
+@mixin make-container($padding-x: $container-padding-x) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include respond-from($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
